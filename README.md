@@ -1,62 +1,62 @@
-## Latar Belakang
-Dalam industri Food and Beverage (F&B) yang sangat kompetitif, pengambilan keputusan berbasis data menjadi kunci utama untuk menjaga profitabilitas dan pertumbuhan bisnis yang berkelanjutan. Sedukopi, sebagai jaringan kedai kopi yang terus berkembang, mengelola berbagai pilihan menu.
+## Background
+In the highly competitive Food and Beverage (F&B) industry, data-driven decision-making is key to maintaining profitability and sustainable business growth. Sedukopi, as a rapidly expanding coffee shop chain, manages a wide variety of menu options.
 
-Seiring bertambahnya transaksi setiap harinya, data yang terkumpul sebenarnya menyimpan banyak potensi tersembunyi. Jika digali lebih dalam, data penjualan dan operasional ini bisa membantu manajemen Sedukopi untuk:
-- Melihat menu mana yang benar-benar membawa keuntungan bagi perusahaan.
-- Merancang promo yang tepat sasaran sesuai kebiasaan pelanggan.
+As the number of daily transactions increases, the collected data actually holds a great deal of hidden potential. If analyzed more deeply, this sales and operational data can help Sedukopi’s management to:
+- Identify which menu items are truly profitable for the company.
+- Design targeted promotions based on customer habits.
 
 ## Problem Statement
-Saat ini, manajemen Sedukopi sedang menghadapi tiga tantangan nyata di lapangan:
-1. Terdapat kecurigaan dari pihak eksekutif (CEO) mengenai ketidakseimbangan performa menu, di mana terdapat menu dengan volume penjualan tinggi namun memberikan margin yang tipis, serta potensi adanya hidden gem (menu bermargin tinggi) yang kurang dipromosikan. 
-2. Tim pemasaran berencana meluncurkan paket bundling untuk meningkatkan nilai rata-rata pesanan (Average Order Value), namun belum memiliki landasan data mengenai kombinasi item yang secara riil sering dipesan bersamaan oleh pelanggan.
+Currently, Sedukopi’s management is facing three real challenges on the ground:
+1. The CEO suspects an imbalance in menu performance, where some items have high sales volume but generate thin margins, while there may be “hidden gems” (high-margin items) that are underpromoted.
+2. The marketing team plans to launch bundling packages to increase the average order value (AOV), but lacks a data foundation regarding which item combinations customers actually order together most frequently.
 
-proyek portofolio ini bertujuan untuk menjawab dua pertanyaan utama:
-1. Menu apa saja yang laris tapi untungnya kecil, dan mana menu "hidden gem" yang harus segera didorong promonya?
-2. Pasangan menu apa yang paling menjanjikan untuk dijadikan paket bundling?
+This portfolio project aims to answer two key questions:
+1. Which menu items are bestsellers but have low profit margins, and which “hidden gem” menu items should be promoted immediately?
+2. Which menu item pairings are the most promising for bundling?
 
 ## Data
-Untuk menjawab pertanyaan-pertanyaan di atas, proyek ini menggunakan dataset penjualanl dari Sedukopi yang mencakup periode 2022 hingga 2025. Dataset ini meliputi data transaksi, detail pesanan, menu, gerai, dan karyawan. Data tersebut akan dianalisis menggunakan pendekatan Menu Engineering (Matriks Boston) dan Analisis Cross-Selling.
+To answer the questions above, this project uses a sales dataset from Sedukopi covering the period from 2022 to 2025. This dataset includes transaction data, order details, menu items, store information, and employee information. The data will be analyzed using the Menu Engineering (Boston Matrix) approach and cross-selling analysis.
 
 ### Matrix Boston
-Model ini digunakan untuk mengklasifikasikan performa setiap menu berdasarkan dua hal: popularitas (volume penjualan) dan profitabilitas (margin keuntungan). Menu akan dibagi menjadi 4 kategori:
-Star: Penjualan tinggi dan margin tinggi. Ini adalah menu andalan yang paling laris dan sangat menguntungkan.
-Plowhorse: Penjualan tinggi, tetapi margin rendah. Menu yang disukai pelanggan dan sering dipesan, namun keuntungan per porsinya tipis.
-Puzzle: Penjualan rendah, tetapi margin tinggi. Ini adalah "hidden gem"; menu yang keuntungannya besar, tapi jarang dibeli (butuh lebih banyak promosi).
-Dog: Penjualan rendah dan margin rendah. Menu yang tidak populer dan tidak membawa keuntungan yang berarti.
+This model is used to classify the performance of each menu item based on two factors: popularity (sales volume) and profitability (profit margin). Menu items will be divided into 4 categories:
+Star: High sales and high margins. These are the best-selling, flagship menu items that are highly profitable.
+Plowhorse: High sales, but low margins. Items that customers like and order frequently, but the profit per serving is slim.
+Puzzle: Low sales but high margins. These are “hidden gems”—items that are highly profitable but rarely purchased (they need more promotion).
+Dog: Low sales and low margins. These are unpopular items that do not generate significant profit.
 
 ### Cross Selling
-Digunakan untuk melihat pola pembelian pelanggan guna menyusun paket bundling. Metodenya adalah dengan melihat item mana saja yang muncul di dalam satu keranjang belanja yang sama, dengan cara memasangkan data detail pesanan (order details) terhadap pesanan itu sendiri (self-join). 
+Used to identify customer purchasing patterns in order to create bundled packages. The method involves identifying which items appear in the same shopping cart by matching order details against the order itself (self-join).
 
-### Kolom relevan dari dataset yang digunakan untuk analisis ini antara lain: 
-- Order ID: ID unik dari setiap keranjang transaksi 
-- Quantity:Jumlah produk yang terjual 
-- Price: Harga jual produk
-- Cost: Harga modal produk
+### Relevant columns from the dataset used for this analysis include:
+- Order ID: The unique ID for each shopping cart
+- Quantity: The number of products sold
+- Price: The selling price of the product
+- Cost: The cost of goods sold
 
-Dengan menggunakan gabungan data ini, kita dapat memetakan strategi bisnis yang lebih terarah, seperti menentukan menu mana yang butuh dorongan promosi dan merancang paket bundling yang paling masuk akal.
+By combining this data, we can develop more targeted business strategies, such as determining which menu items need a promotional boost and designing the most sensible bundling packages.
 
-## Kesimpulan:
+## Conclusion:
 
-Kategori Kopi berperan sebagai penggerak utama volume penjualan, sedangkan kategori Makanan menjadi penyumbang keuntungan terbesar. Hal ini mengindikasikan produk kopi memiliki margin keuntungan yang lebih tipis dibandingkan makanan.
+The Coffee category serves as the primary driver of sales volume, while the Food category is the largest contributor to profit. This indicates that coffee products have lower profit margins than food items.
 
-Terdapat perbedaan signifikan antara popularitas produk dan kontribusinya terhadap profit:
+There is a significant difference between a product’s popularity and its contribution to profit:
 
-1. Top 3 Terlaris: Matcha Espresso Fusion, Cheesecake Slice, dan Butter Croissant.
-2. Top 3 Paling Menguntungkan: Club Sandwich, Almond Croissant, dan French Toast.
+1. Top 3 Best-Sellers: Matcha Espresso Fusion, Cheesecake Slice, and Butter Croissant.
+2. Top 3 Most Profitable: Club Sandwich, Almond Croissant, and French Toast.
 
 ## Insight:
-Berdasarkan temuan tersebut, performa menu dapat diklasifikasikan ke dalam tiga segmen utama:
-1. Volume Tinggi & Margin Tipis: Matcha Espresso Fusion, Cheese Cake Slice, Soda Gembira, Macchiato, dan Taro Latte.
-2. Hidden Gem (Margin Tinggi & Volume Rendah): French Toast, Spaghetti Carbonara, Salad Caesar, Mie Goreng Jawa, dan Sandwich Tuna.
-3. Volume & Profit Rendah: Earl Grey, Cookies Chocochip, Cinnamon Roll, Matcha Latte, dan Kue Sus Vanilla.
+Based on these findings, menu performance can be classified into three main segments:
+1. High Volume & Low Margin: Matcha Espresso Fusion, Cheesecake Slice, Soda Gembira, Macchiato, and Taro Latte.
+2. Hidden Gems (High Margin & Low Volume): French Toast, Spaghetti Carbonara, Caesar Salad, Javanese Fried Noodles, and Tuna Sandwich.
+3. Low Volume & Low Profit: Earl Grey, Chocolate Chip Cookies, Cinnamon Roll, Matcha Latte, and Vanilla Cream Puffs.
 
-## Rekomendasi
-Untuk memaksimalkan pendapatan dan efisiensi operasional, langkah strategis yang perlu dilakukan adalah:
-1. Gunakan Strategi "Menu Pancingan": Pertahankan kualitas menu bervolume tinggi karena berfungsi sebagai penarik traffic pelanggan. Jadikan menu populer ini sebagai pancingan dalam paket penawaran untuk mempromosikan menu lain.
-2. Promosi Agresif & Cross-Selling untuk "Hidden Gem": Menu ini adalah kunci pelipatgandaan profit perusahaan. Instruksikan kasir untuk aktif menawarkan menu tersebut dan terapkan strategi bundling berbasis data transaksi berikut:
-    - French Toast dipasangkan dengan Strawberry Smoothie / Salad Caesar / Avocado Shake.
-    - Spaghetti Carbonara dipasangkan dengan Club Sandwich / Iced Latte / Piccolo.
-    - Salad Caesar dipasangkan dengan French Toast / Sandwich Ayam / Mie Goreng Jawa.
-    - Mie Goreng Jawa dipasangkan dengan Cappuccino / Caramel Macchiato / Piccolo.
-    - Sandwich Tuna dipasangkan dengan Spaghetti Aglio Olio / Nasi Goreng Spesial / Mocha.
-3. Evaluasi Menu Bawah: Hentikan sementara operasional menu dengan volume dan profit rendah untuk mengefisiensikan beban bahan baku dan mengurangi potensi kerugian.
+## Recommendations
+To maximize revenue and operational efficiency, the strategic steps that need to be taken are:
+1. Use a “Lure Menu” Strategy: Maintain the quality of high-volume menu items, as they serve as customer traffic drivers. Use these popular items as a lure in promotional packages to promote other menu items.
+2. Aggressive Promotion & Cross-Selling for “Hidden Gems”: These menu items are the key to multiplying the company’s profits. Instruct cashiers to actively offer these items and implement the following transaction-data-driven bundling strategies:
+    - Pair French Toast with a Strawberry Smoothie / Caesar Salad / Avocado Shake.
+    - Spaghetti Carbonara paired with a Club Sandwich / Iced Latte / Piccolo.
+    - Caesar Salad paired with French Toast / Chicken Sandwich / Javanese Fried Noodles.
+    - Javanese Fried Noodles paired with a Cappuccino / Caramel Macchiato / Piccolo.
+    - Tuna Sandwich paired with Spaghetti Aglio Olio / Special Fried Rice / Mocha.
+3. Evaluate Low-Performing Menu Items: Temporarily suspend menu items with low volume and profit to optimize raw material costs and reduce potential losses.
